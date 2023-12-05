@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import LessonItem from './LessonItem';
 import './LessonsList.css';
 
 type Lesson = {
@@ -11,8 +12,30 @@ const LessonsList = () => {
   const [lessons, setLessons] = useState<Lesson[]>([
     {
       id: 1,
-      title: "Sample Lesson",
-      content: "This is a sample lesson content."
+      title: "Lesson 0",
+      content:
+      `1. 50% rule: practice / free drawing
+       2. 10-15 min warmup, 2-3 exercises`
+    },
+    {
+      id: 2,
+      title: "Lesson 1: Lines, Ellipses and Boxes",
+      content:
+      `Lines HW:
+      2 pages of the Superimposed Lines exercise
+      1 page of the Ghosted Lines exercise
+      2 pages of the Ghosted Planes exercise
+
+      Ellipses HW:
+      2 pages of the Tables of Ellipses exercise
+      2 pages of the Ellipses in Planes exercise
+      1 page of the Funnels exercise
+
+      Boxes HW:
+      1 page of the Plotted Perspective exercise (3 frames)
+      2 pages of the Rough Perspective exercise (3 frames)
+      1 page of the Rotated Boxes exercise
+      2 pages of the Organic Perspective exercise`
     }
   ]);
 
@@ -38,13 +61,7 @@ const LessonsList = () => {
       <h2>Lessons List</h2>
       <div className='lessonsList-grid'>
         {lessons.map(lesson => (
-          <div
-            key={lesson.id}
-            className='lessonsList-lesson'>
-            <h2>{lesson.title}</h2>
-            <p>{lesson.content}</p>
-            {/* admin features; edit/delete buttons here */}
-          </div>
+          <LessonItem key={lesson.id} lesson={lesson} />
         ))}
       </div>
     </div>

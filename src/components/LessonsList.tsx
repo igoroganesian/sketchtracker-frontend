@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './LessonsList.css';
 
 type Lesson = {
   id: number;
@@ -7,7 +8,13 @@ type Lesson = {
 };
 
 const LessonsList = () => {
-  const [lessons, setLessons] = useState<Lesson[]>([]);
+  const [lessons, setLessons] = useState<Lesson[]>([
+    {
+      id: 1,
+      title: "Sample Lesson",
+      content: "This is a sample lesson content."
+    }
+  ]);
 
   useEffect(() => {
     const fetchLessons = async () => {
@@ -27,17 +34,19 @@ const LessonsList = () => {
   }, []);
 
   return (
-    <div>
+    <div className='lessonsList-container'>
       <h2>Lessons List</h2>
-      <ul>
+      <div className='lessonsList-grid'>
         {lessons.map(lesson => (
-          <li key={lesson.id}>
-            <h3>{lesson.title}</h3>
+          <div
+            key={lesson.id}
+            className='lessonsList-lesson'>
+            <h2>{lesson.title}</h2>
             <p>{lesson.content}</p>
             {/* admin features; edit/delete buttons here */}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

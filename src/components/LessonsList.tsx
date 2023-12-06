@@ -59,6 +59,7 @@ const LessonsList = () => {
   return (
     <div className='lessonsList-container'>
       <h2>Lessons List</h2>
+      <a href='/' className='link-button'>Home</a>
       <div className='lessonsList-grid'>
         {lessons.map(lesson => (
           <LessonItem key={lesson.id} lesson={lesson} />

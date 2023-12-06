@@ -1,0 +1,22 @@
+.homePage-container {
+  display: inline-block;
+  margin: 10em auto;
+  padding-bottom: 1.1em;
+  background-color: whitesmoke;
+  border: 2px solid rgb(61, 61, 61);
+  border-radius: 5px;
+}
+
+.homePage h1 {
+  color: rgb(39, 39, 39);
+}
+
+.homePage-button:hover {
+  background-color: rgb(59, 85, 75);
+}
+
+@media screen and (max-height: 300px) {
+  .homePage-container {
+    margin-top: 3em;
+  }
+}

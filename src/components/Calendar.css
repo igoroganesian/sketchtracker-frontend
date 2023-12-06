@@ -1,0 +1,27 @@
+.calendar-container {
+  max-width: 600px;
+  margin: 10em auto;
+  padding: 2em;
+  border: 2px solid rgb(61, 61, 61);
+  border-radius: 10px;
+}
+
+.calendar-header,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-day-name,
+.calendar-day {
+  background-color: whitesmoke;
+  border: 1px solid #ddd;
+  border-radius: 70px;
+  padding: 10px;
+  text-align: center;
+}
+
+.calendar-day.selected {
+  color: whitesmoke;
+  background-color: black;
+}

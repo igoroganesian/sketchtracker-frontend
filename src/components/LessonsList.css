@@ -9,7 +9,6 @@
   grid-auto-rows: min-content;
   gap: 20px;
   margin-top: 1.3em;
-  border: 3px solid red;
 }
 
 .lessonsList-lesson {

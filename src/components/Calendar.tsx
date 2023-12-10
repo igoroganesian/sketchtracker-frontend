@@ -44,9 +44,9 @@ const Calendar: React.FC = () => {
   return (
     <div className="calendar-container">
       <div className='calendar-container-date'>
-        <button onClick={handlePrevMonth}>←</button>
+        <button className='calendar-container-arrow' onClick={handlePrevMonth}>←</button>
         <span>{`${monthNames[currentMonthIndex]} ${currentYear}`}</span>
-        <button onClick={handleNextMonth}>→</button>
+        <button className='calendar-container-arrow' onClick={handleNextMonth}>→</button>
       </div>
       <div className="calendar-header">
         {daysOfWeek.map(day => (

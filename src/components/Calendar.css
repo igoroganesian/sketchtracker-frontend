@@ -8,6 +8,31 @@
   border-radius: 10px;
 }
 
+.calendar-container-date {
+  margin-bottom: 1em;
+}
+
+.calendar-container-date span {
+  margin: 1em;
+}
+
+.calendar-container-arrow {
+  background-color: #4e7265;
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.calendar-container-arrow:hover {
+  background-color: rgb(59, 85, 75);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 .calendar-container a {
   margin: 1em auto 0 auto;
 }

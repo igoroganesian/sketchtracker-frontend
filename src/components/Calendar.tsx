@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react';
 import './Calendar.css';
 
 const Calendar: React.FC = () => {
+  const [currentDate] = useState(new Date());
+  const monthNames = ["January", "February", "March", "April",
+    "May", "June", "July", "August", "September",
+    "October", "November", "December"];
+  const currentMonth = monthNames[currentDate.getMonth()];
+  const currentYear = currentDate.getFullYear();
   const [selectedDays, setSelectedDays] = useState<number[]>(() => {
     const saved = localStorage.getItem('selectedDays');
     const initialValue = saved ? JSON.parse(saved) : [];
@@ -10,18 +16,14 @@ const Calendar: React.FC = () => {
   });
 
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const daysInMonth = Array.from({ length: 30 }, (_, i) => i + 1);
+  const daysInMonth = new Date(currentYear, currentDate.getMonth() + 1, 0).getDate();
+  const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   useEffect(() => {
     localStorage.setItem('selectedDays', JSON.stringify(selectedDays));
   }, [selectedDays]);
 
   const handleDayClick = (day: number) => {
-    // if (selectedDays.includes(day)) {
-    //   setSelectedDays(selectedDays.filter(d => d !== day));
-    // } else {
-    //   setSelectedDays([...selectedDays, day]);
-    // }
     setSelectedDays((prevSelectedDays) =>
       prevSelectedDays.includes(day)
         ? prevSelectedDays.filter(d => d !== day)
@@ -31,6 +33,7 @@ const Calendar: React.FC = () => {
 
   return (
     <div className="calendar-container">
+      <h2>{`${currentMonth} ${currentYear}`}</h2>
       <div className="calendar-header">
         {daysOfWeek.map(day => (
           <div key={day} className="calendar-day-name">
@@ -39,7 +42,7 @@ const Calendar: React.FC = () => {
         ))}
       </div>
       <div className="calendar-grid">
-        {daysInMonth.map(day => (
+        {daysArray.map(day => (
           <div
             key={day}
             className={`calendar-day${selectedDays.includes(day) ? ' selected' : ''}`}

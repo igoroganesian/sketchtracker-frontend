@@ -33,6 +33,13 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.calendar-day:hover {
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 .calendar-container a {
   margin: 1em auto 0 auto;
 }

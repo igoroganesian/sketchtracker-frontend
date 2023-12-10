@@ -8,7 +8,6 @@ const Calendar: React.FC = () => {
   const monthNames = ["January", "February", "March", "April",
     "May", "June", "July", "August", "September",
     "October", "November", "December"];
-  const currentMonth = monthNames[currentDate.getMonth()];
   const currentMonthIndex = currentDate.getMonth();
 
   const [selectedDays, setSelectedDays] = useState<number[]>(() => {
@@ -35,10 +34,12 @@ const Calendar: React.FC = () => {
 
   const handlePrevMonth = () => {
     setCurrentDate(new Date(currentYear, currentMonthIndex - 1, 1));
+    setSelectedDays([]);
   };
 
   const handleNextMonth = () => {
     setCurrentDate(new Date(currentYear, currentMonthIndex + 1, 1));
+    setSelectedDays([]);
   };
 
   return (

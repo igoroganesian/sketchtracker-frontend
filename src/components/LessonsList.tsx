@@ -14,14 +14,14 @@ const LessonsList = () => {
       id: 1,
       title: "Lesson 0",
       content:
-      `1. 50% rule: practice / free drawing
+        `1. 50% rule: practice / free drawing
        2. 10-15 min warmup, 2-3 exercises`
     },
     {
       id: 2,
       title: "Lesson 1: Lines, Ellipses and Boxes",
       content:
-      `Lines HW:
+        `Lines HW:
       2 pages of the Superimposed Lines exercise
       1 page of the Ghosted Lines exercise
       2 pages of the Ghosted Planes exercise
@@ -60,6 +60,7 @@ const LessonsList = () => {
     <div className='lessonsList-container'>
       <h2>Lessons List</h2>
       <a href='/' className='link-button'>Home</a>
+      <a href='/calendar' className='link-button'>Calendar</a>
       <div className='lessonsList-grid'>
         {lessons.map(lesson => (
           <LessonItem key={lesson.id} lesson={lesson} />

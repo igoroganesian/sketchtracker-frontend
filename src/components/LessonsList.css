@@ -1,6 +1,6 @@
 .lessonsList-container {
   grid-template-columns: 1fr;
-  margin: 1em;
+  margin: 4em auto;
   padding: .5em 1em;
 }
 

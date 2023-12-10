@@ -1,9 +1,15 @@
 .calendar-container {
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 10em auto;
   padding: 2em;
   border: 2px solid rgb(61, 61, 61);
   border-radius: 10px;
+}
+
+.calendar-container a {
+  margin: 1em auto 0 auto;
 }
 
 .calendar-header,

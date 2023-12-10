@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import './Calendar.css';
 
 const Calendar: React.FC = () => {
-  const [currentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const currentYear = currentDate.getFullYear();
   const monthNames = ["January", "February", "March", "April",
     "May", "June", "July", "August", "September",
     "October", "November", "December"];
   const currentMonth = monthNames[currentDate.getMonth()];
-  const currentYear = currentDate.getFullYear();
+  const currentMonthIndex = currentDate.getMonth();
+
   const [selectedDays, setSelectedDays] = useState<number[]>(() => {
     const saved = localStorage.getItem('selectedDays');
     const initialValue = saved ? JSON.parse(saved) : [];
@@ -16,7 +18,7 @@ const Calendar: React.FC = () => {
   });
 
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const daysInMonth = new Date(currentYear, currentDate.getMonth() + 1, 0).getDate();
+  const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
   const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   useEffect(() => {
@@ -31,9 +33,21 @@ const Calendar: React.FC = () => {
     );
   };
 
+  const handlePrevMonth = () => {
+    setCurrentDate(new Date(currentYear, currentMonthIndex - 1, 1));
+  };
+
+  const handleNextMonth = () => {
+    setCurrentDate(new Date(currentYear, currentMonthIndex + 1, 1));
+  };
+
   return (
     <div className="calendar-container">
-      <h2>{`${currentMonth} ${currentYear}`}</h2>
+      <div className='calendar-container-date'>
+        <button onClick={handlePrevMonth}>←</button>
+        <span>{`${monthNames[currentMonthIndex]} ${currentYear}`}</span>
+        <button onClick={handleNextMonth}>→</button>
+      </div>
       <div className="calendar-header">
         {daysOfWeek.map(day => (
           <div key={day} className="calendar-day-name">

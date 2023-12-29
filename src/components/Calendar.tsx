@@ -42,15 +42,13 @@ const Calendar: React.FC = () => {
     setSelectedDays([]);
   };
 
-  // <div className='calendar-container-date'>
-  // <button className='calendar-container-arrow' onClick={handlePrevMonth}>←</button>
-  // <span>{`${monthNames[currentMonthIndex]} ${currentYear}`}</span>
-  // <button className='calendar-container-arrow' onClick={handleNextMonth}>→</button>
-  // </div>
-
   return (
     <div className="calendar-container">
-      <span>{`${monthNames[currentMonthIndex]} ${currentYear}`}</span>
+      <div className='calendar-container-date'>
+        <button className='calendar-container-arrow' onClick={handlePrevMonth}>◀︎</button>
+        <span>{`${monthNames[currentMonthIndex]} ${currentYear}`}</span>
+        <button className='calendar-container-arrow' onClick={handleNextMonth}>►</button>
+      </div>
       <div className="calendar-header">
         {daysOfWeek.map(day => (
           <div key={day} className="calendar-day-name">
@@ -73,6 +71,6 @@ const Calendar: React.FC = () => {
   );
 };
 
-{/* <a href='/' className='link-button'>Home</a> */}
+{/* <a href='/' className='link-button'>Home</a> */ }
 
 export default Calendar;

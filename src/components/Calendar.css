@@ -9,6 +9,7 @@
   text-transform: uppercase;
   font-size: 1.5em;
   margin: 0 10px;
+  width: 250px;
 }
 
 .calendar-container-arrow {
@@ -73,41 +74,5 @@
 
 .calendar-day.selected {
   color: whitesmoke;
-  background-color: rgb(182, 114, 62);
+  background-color: #4e7265;
 }
-
-/* .calendar-day:hover {
-  background-color: rgb(226, 226, 226);
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-} */
-
-/*
-.calendar-day-name {
-  background-color: whitesmoke;
-  border: 1px solid #ddd;
-  padding: 5px;
-  text-align: center;
-}
-
-.calendar-day {
-  background-color: whitesmoke;
-  width: 30px;
-  height: 30px;
-  border: 2px solid #cccccc;
-  border-radius: 5px;
-  margin-left: 1.5em;
-  cursor: pointer;
-}
-*/
-
-/* @media (max-width: 768px)
-  .calendar-grid {
-    grid-template-columns: repeat(7, minmax(30px, 1fr));
-  }
-
-  .calendar-day-name, .calendar-day {
-    padding: 5px;
-  }
-} */

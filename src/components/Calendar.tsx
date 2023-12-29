@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import './Calendar.css';
 
 const Calendar: React.FC = () => {
@@ -45,9 +47,17 @@ const Calendar: React.FC = () => {
   return (
     <div className="calendar-container">
       <div className='calendar-container-date'>
-        <button className='calendar-container-arrow' onClick={handlePrevMonth}>◀︎</button>
+        <button
+          className='calendar-container-arrow'
+          onClick={handlePrevMonth}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
         <span>{`${monthNames[currentMonthIndex]} ${currentYear}`}</span>
-        <button className='calendar-container-arrow' onClick={handleNextMonth}>►</button>
+        <button
+          className='calendar-container-arrow'
+          onClick={handleNextMonth}>
+          <FontAwesomeIcon icon={faArrowRight} />
+        </button>
       </div>
       <div className="calendar-header">
         {daysOfWeek.map(day => (

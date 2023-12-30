@@ -1,0 +1,25 @@
+.heat-map-calendar {
+  display: grid;
+  grid-template-columns: (7fr, auto);
+  max-width: 700px;
+  margin: auto;
+}
+
+.week {
+  display: flex;
+}
+
+.day {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.day[style*="40c463"] {
+  border: 1px solid #40c463;
+}
+
+.day[style*="ebedf0"] {
+  border: 1px solid #ebedf0;
+}

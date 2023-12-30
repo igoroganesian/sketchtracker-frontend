@@ -1,5 +1,5 @@
-// LessonItem.tsx
 import React, { useState } from 'react';
+import "./LessonItem.css";
 
 type LessonProps = {
   lesson: {

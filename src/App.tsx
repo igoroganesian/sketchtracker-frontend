@@ -46,11 +46,11 @@ const App = () => {
 
   return (
     <Router>
-      <HeatMapCalendar activityData={activityData} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/lessons" element={<LessonsList />} />
         <Route path="/calendar" element={<Calendar />} />
+        <Route path="/heatmap" element={<HeatMapCalendar activityData={activityData} />} />
       </Routes>
     </Router>
   );

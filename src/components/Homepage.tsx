@@ -7,6 +7,7 @@ const HomePage = () => {
       <div className='homePage-container-buttons'>
         <a href='/lessons' className='link-button'>Lessons</a>
         <a href='/calendar' className='link-button'>Calendar</a>
+        <a href='/heatmap' className='link-button'>Heatmap</a>
         <a href='https://drawabox.com/' className='link-button'>Drawabox</a>
       </div>
     </div>

@@ -21,27 +21,28 @@ const HeatMapCalendar = () => {
     };
 
     const getCellColor = (isActivityDone: boolean): string => {
-        return isActivityDone ? '#40c463' : '#ebedf0';
+        return isActivityDone ? '#8b77df' : '#ebedf0';
     };
 
     const generateCalendar = () => {
         const startDate = new Date(previousYear, 0, 1);
         const endDate = new Date(currentYear, 11, 31);
+        const yearStart = new Date(currentYear, 0, 1);
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
         const daysArray = [];
 
-        /** UP TO AND INCLUDING TODAY'S DATE */
-        // for (let day = new Date(startDate); day <= endDate; day.setDate(day.getDate() + 1)) {
-        //     if (day > today) {
-        //         break;
-        //     }
         for (let day = new Date(startDate); day <= endDate; day.setDate(day.getDate() + 1)) {
+            /** Up to and including today's date */
+            if (day > today) {
+                break;
+            }
             const formattedDate = day.toISOString().split('T')[0];
             daysArray.push({
                 date: formattedDate,
                 isToday: day.getTime() === today.getTime(),
+                isLastYear: day < yearStart,
                 isActivityDone: !!activityData[formattedDate],
             });
         }
@@ -51,12 +52,15 @@ const HeatMapCalendar = () => {
 
     return (
         <div className="heatmap">
-            <h2 className="heatmap-title">Drawing</h2>
+            <div className="heatmap-head">
+                <h2 className="heatmap-title">Drawing</h2>
+                <button>+</button>
+            </div>
             <div className="heatmap-calendar">
                 {generateCalendar().map((day, i) => (
                     <div
                         key={i}
-                        className={`day ${day.isToday ? 'today' : ''}`}
+                        className={`day ${day.isToday ? 'today' : ''} ${day.isLastYear ? 'lastYear' : ''}`}
                         style={{ backgroundColor: getCellColor(day.isActivityDone) }}
                         onClick={() => toggleActivity(day.date)}
                     />

@@ -30,6 +30,8 @@ const HeatMapCalendar = ({ activityData }: HeatMapCalendarProps) => {
             });
         }
 
+        console.log(daysArray);
+
         const weeks = [];
         for (let i = 0; i < daysArray.length; i += 7) {
             weeks.push(daysArray.slice(i, i + 7));

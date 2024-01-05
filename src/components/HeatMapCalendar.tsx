@@ -30,28 +30,17 @@ const HeatMapCalendar = ({ activityData }: HeatMapCalendarProps) => {
             });
         }
 
-        console.log(daysArray);
-
-        const weeks = [];
-        for (let i = 0; i < daysArray.length; i += 7) {
-            weeks.push(daysArray.slice(i, i + 7));
-        }
-
-        return weeks;
+        return daysArray;
     };
 
     return (
         <div className="heat-map-calendar">
-            {generateCalendar().map((week, i) => (
-                <div key={i} className="week">
-                    {week.map((day, j) => (
-                        <div
-                            key={j}
-                            className="day"
-                            style={{ backgroundColor: getCellColor(day.isActivityDone) }}
-                        />
-                    ))}
-                </div>
+            {generateCalendar().map((day, i) => (
+                <div
+                    key={i}
+                    className="day"
+                    style={{ backgroundColor: getCellColor(day.isActivityDone) }}
+                />
             ))}
         </div>
     );

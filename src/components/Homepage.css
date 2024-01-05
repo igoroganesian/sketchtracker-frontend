@@ -1,4 +1,5 @@
 .homePage-container {
+  text-align: center;
   display: flex;
   flex-direction: column;
   margin: 10em 30%;
@@ -9,6 +10,7 @@
 }
 
 .homePage-container-buttons {
+
   display: flex;
   justify-content: center;
   align-items: center;
